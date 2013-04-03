@@ -4,28 +4,6 @@
 @import 'nib'
 /* @group colors */
 
-/*
-#DCD2D0 White Tiger
-#5A5484 Penelope (purple)
-#292536 Walk on By (darker purple)
-#623842 Beginning of the End (Purple+orange?)
-#AF7260 B12 (Orangish)
-*/
-PRIMARY_DARK = #292536
-PRIMARY = #5A5484
-SECONDARY = #623842
-TERTIARY = #AF7260
-LIGHT = #DCD2D0
-
-BODY_COPY()
-  font-family 'Radley', serif
-  font-weight 400
-
-DISPLAY_COPY()
-  font-family 'Radley', serif
-  font-weight 400
-  font-variant small-caps
-
 /* end colors @end */
 /*! normalize.css v1.0.1 | MIT License | git.io/normalize */
 /* @group normalize */
@@ -58,7 +36,7 @@ a:active, a:hover
   outline: 0
 
 h1, h2, h3
-  color SECONDARY
+  color #fff
   font-family: Helvetica
   font-weight: bold
 
@@ -220,7 +198,7 @@ table
 /* @group h5bp helpers */
 
 html, button, input, select, textarea
-  color: #222
+  color: #ddd
 
 body
   font-size: 1.333em
@@ -310,305 +288,83 @@ textarea
 /* @group main styles */
 
 html
-  //background: #dcd2d0
-  padding 0 5%
+  background: #111
 
 body
-  max-width 660px
   margin 0 auto
-  padding 1.5em 3em
+  padding 0
   position relative
-  background #fff
-  //box-shadow: 0 0 8px 8px #dcd2d0
-  //border: 4px solid #af7260
-  //border-top: 0
-  //border-bottom: 0
-  &:before
-    border-top 6px solid PRIMARY
-    position fixed
-    content ' '
-    top 0
-    left 0
-    right 0
-    height 10px
-    background linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0))
-    z-index 10
-
-.content
-  position relative
-
-  a
-    color darken(TERTIARY, 10%)
-    display inline-block
-    padding 0.333em 0.5em
-    margin: -0.333em -0.5em
-    text-decoration none
-    transition all 0.2s ease-in
-    &:focus,
-    &:hover
-      color brighten(TERTIARY, 30%)
 
 /* main styles @end */
 /*@group header */
 
 #masthead
+  background #262425
+  border-bottom 2px solid #000
   position relative
+  text-align right
+
+  .logo
+    float left
+
+  nav
+    display inline-block
   a
-    DISPLAY_COPY()
-    color PRIMARY
+    color #aaa
     display inline-block
-    font-size 3em
-    margin 0 0 1em
+    font-weight bold
     text-decoration none
-  p
-    BODY_COPY()
-    color: darken(LIGHT, 50%)
-    display inline-block
-    background: lighten(LIGHT, 25%)
-    border-top: 2px solid darken(LIGHT, 15%)
-    border-bottom: 2px solid darken(LIGHT, 15%)
-    position absolute
-    top 0
-    right 0
-    padding 0.333em 0.75em
-    text-align center
-  span
-    display block
-  .dos
-    color #c1afab
-    font-style italic
-    position absolute
-    top -1.1333em
-    left 50%
-    margin-left -2.333em
+    font-size 0.6666em
+    margin-right 0.666em
+    text-transform uppercase
+    &:focus,
+    &:hover
+      color #fff
+
+  .icon
+    height 1.5em
+    width 1.5em
+    overflow hidden
+    text-align left
+    text-indent -99em
+
+  .icon-instagram
+    background: url(/assets/instagram.jpg)
+  .icon-twitter
+    background: url(/assets/twitter.jpg)
+
 
 /* header @end */
 /* @group footer */
-/*
-.pants,
+
 #footer
-  display inline-block
-  vertical-align top
-
-.pants
-  overflow-x hidden
-  width 66%
-#footer
-  margin-left 8%
-  width 26%
-*/
-
-.pants
-  margin-bottom 3em
-  overflow-x hidden
-
-.vcard
-  margin-top 0.16666em
-  .fn
-    BODY_COPY()
-    color PRIMARY
-    font-size 1.33em
-    padding 0 0.41666em
-  .title,
-  .org
-    BODY_COPY()
-    color lighten(PRIMARY, 40%)
-    display block
-    font-size 0.875em
-    letter-spacing 0.5px
-    text-transform uppercase
-    padding 0 0.555em 0.3333em
-    border-bottom 1px solid TERTIARY
-  a
-    color darken(LIGHT, 10%)
-    display block
-    padding 0.333em 0.5em
-    font-size 0.875em
-    text-decoration none
-    border-bottom 1px solid TERTIARY
-    &:focus,
-    &:hover
-      color darken(LIGHT, 40%)
+  fixed bottom 0.75em left 0.75em
+  color #fff
+  font-size 0.5em
 
 /* footer @end */
-/* @group article */
+/* @group home */
 
-#home h1
-  display none
+#home
+  img
+    min-height 100%
+    min-width 100%
+    left -20%
+    position relative
 
-.hfeed
-  list-style none
-  margin 0
-  padding 0
-
-.entry-title
-  color SECONDARY
-  font-size 2em
-  font-weight bold
-  margin 0
-  text-decoration none
-.entry-title a,
-a.entry-title
-  color SECONDARY
-  text-decoration none
-  &:focus,
-  &:hover
-    color TERTIARY
-
-.hentry .meta
-  margin 0 0 0.75em
-
-.meta
-  BODY_COPY()
-  font-size 1.333em
-  .published,
-  .updated
-    color TERTIARY
-    font-style italic
-    border-bottom 0
-  /*
-  background lighten(LIGHT, 40%)
-  border-top 2px solid LIGHT
-  border-bottom 2px solid LIGHT
-  padding 0.333em 1.5em
-  */
-  .entry-tags
-    font-family 'Lucida Grande'
-    font-size 0.75em
-    margin-top 0.333em
-    &:before
-      content 'Posted in '
-      font-size 0.666em
-      background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHpSURBVDjLhZNbbxJhEIb3T/RWw78g2fjLvLE2ppe1TYNtvGuNRo6BcA4kIBBOgXCU3QXploCAmNQE/VY55PWbj7CWcPBibuab95l3ZmelZrOJRqOBWq2GarWKSqWCcrmMUqmEYrF4BEA6FFK9XsdyudyKfr8vILlc7iBEos4k6PV6orOu6yaEctwF0un0XohElqmYulGiUCiUptMp5vO5yBMwm80ikUjshEjUdV3IxX+45Z5hGPj29RcykbF463a7SKVSiMfjWxCJOq8tLxYLkPj72MCbEw3nz1WkwytIp9MhF4hEIhsQic/IJpOJKJrNZqKz7aWGm7Mu3l/quDppmxBN08gFAoGACZHy+fwzPiMbj1dFSvVBdL49v8PHq/stiKqq5AJer1dABCWTych8RjYajURRu/EDtmMV7y7+QWzHGj4FV++tVotcwO12H5mzJJNJmc/IhsPhFuSDTcfb0w6uTz/zr7MQLkKhEJxO59ONjfL55FgsxgaDgQm5fKHg+lUbtxdt/Jwaj8UWc4THEY1G5XA4zOgSxeLqD7h5/QW/jbkpdjgcFnOJu44jGAzKfr+f0SWuPzGJeX5DvBdA4fP5rHzTjA5MUZSd4oMACo/HY3W5XIzEdrvdsvOU//e78q5WLn6y7/0viZYv/mL7AwwAAAAASUVORK5CYII%3D') no-repeat
-      display inline-block
-      padding-left 1.75em
-      height 1.5em
-      width 5em
-a[rel='tag']
-  color SECONDARY
-  font-size 0.75em
-  font-style normal
-  text-decoration none
-  &:focus,
-  &:hover
-    color TERTIARY
-  &:active
-    color darken(TERTIARY, 50%)
-
-.entry-summary,
-.entry-content
-  BODY_COPY()
-  line-height 1.6666
-  p
-    margin 0
-  p + p
-    text-indent 1.8em
-
-blockquote
-  border-left: 3px solid PRIMARY
-  padding: 1.5em
-  background: #f9f9f9
-  margin: 1em 0
-
-
-.related
-  border-top 2px solid SECONDARY
-  margin 1.5em 0
-  &:before
-    content ' '
-    display block
-    margin-top 1px
-    padding-bottom 1.5em
-    border-top 1px solid SECONDARY
-
-  header,
-  ul
-    width 50%
-    display inline-block
-    vertical-align top
-  header
-    font-size 1em
-    font-weight bold
-  ul
-    list-style none
-    margin 0
-    padding 0
-  a
-    BODY_COPY()
-    color SECONDARY
-    text-decoration none
-    &:focus,
-    &:hover
-      color TERTIARY
-  span
-    color darken(LIGHT, 20%)
-    display block
-    font-size 0.75em
-
-
-
-/* article @end */
-/* @group tables */
-
-table
-  margin 1.5em 0
-th
-  text-align left
-  border-bottom 1px solid #ccc
-td
-  padding: 0.333em
-  border-bottom 1px solid #ddd
-
-.numbered
-  td:first-child
-    text-align center
-    width 2em
-
-/* @end tables */
+/* home @end */
 /* @group 35em min-width */
 @media only screen and (min-width: 35em)
-  .entry-tags
-    float right
+  // TODO
 
 /* end 35em min-width @end */
 /* @group 60em min-width tablet-esque */
 @media only screen and (max-width: 60em)
-  .pants,
-  #footer
-    width 100%
-    margin 0
+  // TODO
 /* end 60em min-width tablet-esque @end */
 /* @group XXem min-width */
 @media only screen and (max-width: 60em)
-  body
-    padding 1.5em 0
-    font-size 1em
-  #masthead
-    a
-      font-size: 2.5em
-      margin-bottom 0
-    p
-      display block
-      margin-bottom 2em
-      position relative
-  .hentry
-    margin-bottom 3em
-
-  .meta .published,
-  .meta .updated
-    font-size: 0.75em
-  .entry-tags
-    display block
-
-  blockquote
-    font-size 0.8em
-
-  h1, h2, h3, h4,
-  .entry-title
-    line-height 1.1
-
-  .entry-content
-    font-size: 1.3333em
+  // TODO
 /* end XXem min-width @end */
 
 /* @group high-res mq */
