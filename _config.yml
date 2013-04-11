@@ -10,4 +10,10 @@ exclude:
   - Gemfile.lock
   - Makefile
   - bin/
+locales:
+  en:
+    about_us_title: About Stout21
+    about_us_body: Stout21 is designed to revolutionize the adult beverage market with the idea of creating something unique.
+    "Under Age Boozers are Losers": "Under Age Boozers are Losers"
+    "Think And Drink Responsibly": "Think And Drink Responsibly"
 

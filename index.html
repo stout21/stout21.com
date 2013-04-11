@@ -1,9 +1,27 @@
 ---
 layout: default
 title: Stout 21
+locale: en
 ---
+{% if locale == "" %}{% assign locale = "en" %}{% endif %}
+
 
 <div id="home">
   <img src="/assets/home.jpg">
 </div>
+<section id="about">
+  <div class="slide">
+    <h2>{{ 'about_us_title' | localize }}</h2>
+    <p>{{ 'about_us_body' | localize }}</p>
+  </div>
+  <div class="slide">
+    <h2>{{ "Under Age Boozers are Losers" | localize }}</h2>
+    <p> {{ "Think And Drink Responsibly" | localize }}</p>
+  </div>
+  <div class+"images">
+    <img src="/assets/home.jpg">
+    <img src="/assets/home.jpg">
+    <img src="/assets/home.jpg">
+  </div>
+</section>
 
