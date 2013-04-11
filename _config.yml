@@ -12,8 +12,24 @@ exclude:
   - bin/
 locales:
   en:
-    about_us_title: About Stout21
-    about_us_body: Stout21 is designed to revolutionize the adult beverage market with the idea of creating something unique.
+    "About Stout21": "About Stout21"
+    about_us: "Stout21 is designed to revolutionize the adult beverage market with the idea of creating something unique."
     "Under Age Boozers are Losers": "Under Age Boozers are Losers"
     "Think And Drink Responsibly": "Think And Drink Responsibly"
+    "The Flavors of Stout21": "The Flavors of Stout21"
+    flavors:
+      - name: "Apple Pie"
+        description: "I am your king. Well, I didn&rsquo;t vote for you. Well, how&rsquo;d you become king, then? I have to push the pram a lot. But you are dressed as one…"
+        img: "bottle-applepie.png"
+      - name: "Margarita"
+        description: "You can&rsquo;t expect to wield supreme power just &rsquo;cause some watery tart threw a sword at you! Where&rsquo;d you get the coconuts? Found them? In Mercia?! The coconut&rsquo;s tropical!"
+        img: "bottle-margarita.png"
+      - name: "Royal Flush"
+        description: "It&rsquo;s only a model. We shall say &ldquo;Ni&rdquo; again to you, if you do not appease us. Shut up! Will you shut up?! Camelot! Shut up! The Knights Who Say Ni demand a sacrifice!"
+        img: "bottle-royalflush.png"
+      - name: "Screwdriver"
+        description: "Ah, now we see the violence inherent in the system! No, no, no! Yes, yes. A bit. But she&rsquo;s got a wart. Be quiet! Well, she turned me into a newt. Burn her!"
+        img: "bottle-screwdriver.png"
+
+
 

@@ -5,23 +5,32 @@ locale: en
 ---
 {% if locale == "" %}{% assign locale = "en" %}{% endif %}
 
-
-<div id="home">
+<section id="home">
   <img src="/assets/home.jpg">
-</div>
+</section>
 <section id="about">
   <div class="slide">
-    <h2>{{ 'about_us_title' | localize }}</h2>
-    <p>{{ 'about_us_body' | localize }}</p>
+    <h2>{{ "About Stout21" | localize }}</h2>
+    <p>{{ 'about_us' | localize }}</p>
   </div>
   <div class="slide">
     <h2>{{ "Under Age Boozers are Losers" | localize }}</h2>
     <p> {{ "Think And Drink Responsibly" | localize }}</p>
   </div>
-  <div class+"images">
-    <img src="/assets/home.jpg">
-    <img src="/assets/home.jpg">
-    <img src="/assets/home.jpg">
+</section>
+<section id="flavors">
+  <h2 class="visuallyhidden">{{ "The Flavors of Stout21" | localize }}</h2>
+  <div class="cans">
+    {% for flavor in site.locales.en.flavors %}
+      <img id="flavor{{ flavor[name"] | camelcase }}" src="/assets/{{ flavor['img'] }}" alt="The {{ flavor['name'] }} Beverage">
+    {% endfor %}
   </div>
+  {% for flavor in site.locales.en.flavors %}
+    <!--TODO: localize flavors-->
+    <article class="flavor flavor{{ flavor["name"] | camelcase }}">
+      <h3>{{ flavor["name"] }} </h3>
+      <p>{{ flavor["description"] }}</p>
+    </article>
+  {% endfor %}
 </section>
 
