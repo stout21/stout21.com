@@ -4,6 +4,8 @@ title: Stout 21
 locale: en
 ---
 {% if locale == "" %}{% assign locale = "en" %}{% endif %}
+<div id="wrapper"
+  >
 
 <section id="home">
   <img src="/assets/home.jpg">
@@ -18,7 +20,13 @@ locale: en
     <p> {{ "Think And Drink Responsibly" | localize }}</p>
   </div>
 </section>
-<section id="flavors">
+<section id="flavors"
+  style="background: url("/assets/flavors-bg.png") no-repeat center center fixed;"
+  data-500="background-color:#da4c32"
+  data-1000="background-color:#bdc86e"
+  data-1500="background-color:#dfac40"
+  data-2000="background-color:#cb232f"
+  >
   <h2 class="visuallyhidden">{{ "The Flavors of Stout21" | localize }}</h2>
   <div class="cans">
     {% for flavor in site.locales.en.flavors %}
