@@ -321,16 +321,34 @@ body
   nav
     display inline-block
   a
-    color #eee
+    color #bbb
     display inline-block
     line-height 49px
     text-decoration none
     font-size 0.6666em
-    margin-right 0.666em
+    position relative
+    margin 0 0.333em
+    text-shadow: 0px 0px 1px rgba(0,0,0,1)
     text-transform uppercase
-    &:focus,
-    &:hover
-      color #e90128
+  ul
+    margin 0
+    padding 0
+
+  li
+    display inline-block
+    position relative
+
+    a
+      backface-visibility hidden
+      margin 0 0.81666em
+      transform-style preserve-3d
+      transition all 0.3s cubic-bezier(1.000, -0.600, 0.000, 1.650)
+
+  li:hover a,
+  li a:focus
+    color #e90128
+    text-shadow: 0 0 10px rgba(255,255,255,0.166)
+    transform rotateX(360deg) scale(1.1666)
 
   .icon
     background-image url(/assets/sprite.png)
@@ -341,6 +359,11 @@ body
     text-align left
     text-indent -99em
     vertical-align middle
+    transition all 0.7s cubic-bezier(1.000, -0.600, 0.000, 1.650)
+    // cubic-bezier(1.000, -0.530, 0.405, 1.425)
+    &:hover,
+    &:focus
+      transform rotateZ(360deg) scale(1.333)
 
   .icon-instagram
     background-position -233px -14px
