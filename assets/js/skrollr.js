@@ -925,7 +925,7 @@
     var numbers = [];
 
     if (val.match(/^#/)) {
-      val = _parseHex(val.replace('#', ''));
+      val = _parseHex(val.replace(/^#|\s+/g, ''));
     }
     console.log('_parseProp', val);
 

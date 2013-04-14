@@ -8,29 +8,25 @@ locale: en
   >
 
 <section id="home">
-  <img src="/assets/home.jpg">
+  <img src="/assets/tmp.png">
 </section>
 <section id="about">
-  <div class="slide">
-    <h2>{{ "About Stout21" | localize }}</h2>
-    <p>{{ 'about_us' | localize }}</p>
+  <div class="about-content" data-0="transform:translateX(-1000px)" data-600="transform[swing]:translateX(0px)">
+    <h2 data-0="transform:translateX(-200px)" data-660="transform[swing]:translateX(0px)">{{ "About Stout21" | localize }}</h2>
+    <p data-0="transform:translateX(-600px)" data-700="transform[swing]:translateX(0px)">{{ 'about_us' | localize }}</p>
   </div>
-  <div class="slide">
-    <h2>{{ "Under Age Boozers are Losers" | localize }}</h2>
-    <p> {{ "Think And Drink Responsibly" | localize }}</p>
-  </div>
+  <div class="slide"><img src="/assets/home.jpg"></div>
 </section>
 <section id="flavors"
-  data-500="background-color:#da4c32"
-  data-1000="background-color:#bdc86e"
-  data-1500="background-color:#dfac40"
-  data-2000="background-color:#cb232f"
+  data-1500="background-color:#da4c32"
+  data-2000="background-color:#bdc86e"
+  data-2500="background-color:#dfac40"
+  data-2500="background-color:#cb232f"
   >
   <h2 class="visuallyhidden">{{ "The Flavors of Stout21" | localize }}</h2>
   <div class="cans">
-    {% for flavor in site.locales.en.flavors %}
-      <img id="flavor{{ flavor[name"] | camelcase }}" src="/assets/{{ flavor['img'] }}" alt="The {{ flavor['name'] }} Beverage">
-    {% endfor %}
+    {% comment %}This is all one-lined to ensure that the inline-block style of images is collapsed{% endcomment %}
+    {% for flavor in site.locales.en.flavors %}<img id="flavor{{ flavor[name"] | camelcase }}" src="/assets/{{ flavor['img'] }}" alt="The {{ flavor['name'] }} Beverage">{% endfor %}
   </div>
   {% for flavor in site.locales.en.flavors %}
     <!--TODO: localize flavors-->
