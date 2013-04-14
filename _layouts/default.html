@@ -7,7 +7,7 @@
 <title>{{ page.title }}</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width">
-<link rel='stylesheet' href='//fonts.googleapis.com/css?family=Ubuntu:500'>
+<link rel='stylesheet' href='//fonts.googleapis.com/css?family=Ubuntu'>
 <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
@@ -26,7 +26,9 @@
 </header>
 {{ content }}
 <footer id="footer" role="contentinfo">
-  <div>&copy; {{ site.time | date: "%Y"  }} Stout 23</div>
+  <!--<h2>{{ "Under Age Boozers are Losers" | localize }}</h2>-->
+  <p class="push">{{ "Think And Drink Responsibly" | localize }}</p>
+  <div>&copy; Stout21 {{ site.time | date: "%Y"  }}</div>
 </footer>
 <script src="http://code.jquery.com/jquery-2.0.0b2.js"></script>
 <script src="/assets/js/skrollr.js"></script>
