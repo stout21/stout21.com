@@ -4,11 +4,15 @@ title: Stout 21
 locale: en
 ---
 {% if locale == "" %}{% assign locale = "en" %}{% endif %}
-<div id="wrapper"
-  >
+<div id="wrapper">
 
-<section id="home">
-  <img src="/assets/tmp.png">
+<section id="video">
+  <img id="video-logo" src="/assets/logo.alt.svg">
+  <div class="buttons">
+    <a class="btn" href="#play-video">Watch Film</a>
+    <a class="btn" href="#flavors">The Flavors</a>
+  </div>
+  <img id="play-video" src="/assets/tmp-video.jpg">
 </section>
 <section id="about">
   <div class="about-content" data-0="transform:translateX(-1000px)" data-600="transform[swing]:translateX(0px)">
@@ -24,9 +28,9 @@ locale: en
   data-2500="background-color:#cb232f"
   >
   <h2 class="visuallyhidden">{{ "The Flavors of Stout21" | localize }}</h2>
-  <div class="cans">
+  <div class="cans" data-2000="position:fixed;left:0;top:12.5%">
     {% comment %}This is all one-lined to ensure that the inline-block style of images is collapsed{% endcomment %}
-    {% for flavor in site.locales.en.flavors %}<img id="flavor{{ flavor[name"] | camelcase }}" src="/assets/{{ flavor['img'] }}" alt="The {{ flavor['name'] }} Beverage">{% endfor %}
+    {% for flavor in site.locales.en.flavors %}{% assign start = 500 * forloop.index + 500 %}{% assign end = 500 * forloop.index * 1000 %}<img data-{{ start }}="transform:scale(0.5);opacity:0.6" data-{{ end }}="transform:scale(1);opacity:1"  id="flavor{{ flavor[name"] | camelcase }}" src="/assets/{{ flavor['img'] }}" alt="The {{ flavor['name'] }} Beverage">{% endfor %}
   </div>
   {% for flavor in site.locales.en.flavors %}
     <!--TODO: localize flavors-->

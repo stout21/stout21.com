@@ -899,17 +899,39 @@
   var _parseHex = function(hex) {
     var r, g, b;
     if (hex.length === 3) {
-      var shortHand = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-      hex = hex.replace(shortHand, function(m, r, g, b) {
+      hex = hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, function(m, r, g, b) {
         return r + r + g + g + b + b;
       });
     }
+
     var bigint = parseInt(hex, 16);
 
     r = (bigint >> 16) & 255;
     g = (bigint >> 8) & 255;
     b = bigint & 255;
+    //return _rgbToHsl(r, g, b);
     return 'rgb(' + [r, g, b].join(',') + ')';
+  };
+
+  var _rgbToHsl = function(r, g, b) {
+    r /= 255; g /= 255; b /= 255;
+    var max = Math.max(r, g, b),
+        min = Math.min(r, g, b),
+        h, s, l = (max + min) / 2, d = max - min;
+
+    if (max === min) {
+      h = s = 0;
+      return 'hsl(' + Math.floor(h * 360) + ',' + Math.floor(s * 100) + '%,' + Math.floor(l * 100) + '%)';
+    }
+
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+      case g: h = (b - r) / d + 2; break;
+      case b: h = (r - g) / d + 4; break;
+    }
+    h /= 6;
+    return 'hsl(' + Math.floor(h * 360) + ',' + Math.floor(s * 100) + '%,' + Math.floor(l * 100) + '%)';;
   };
 
   /**
