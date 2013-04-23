@@ -8,7 +8,17 @@
   });
 
   $(function() {
-    skrl = skrollr.init();
+    var CONSTANTS = {
+      applePie: $('.flavorApplePie').offset().top,
+      margarita: $('.flavorMargarita').offset().top,
+      royalFlush: $('.flavorRoyalFlush').offset().top,
+      screwdriver: $('.flavorScrewdriver').offset().top
+    };
+    console.log(CONSTANTS);
+
+    skrl = skrollr.init({
+      constants: CONSTANTS
+    });
   });
 
   var player = _V_('the-video');

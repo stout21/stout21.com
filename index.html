@@ -16,10 +16,11 @@ locale: en
     </div>
   </div>
   <video id="the-video" class="video-js vjs-default-skin" controls
-    preload="auto" width="100%" height="100%" poster="/assets/images/tmp-video.jpg"
+    preload="auto" poster="/assets/images/tmp-video.jpg"
     data-setup="{}">
     <source src="assets/video/desktop.mp4" type='video/mp4'>
     <!--<source src="my_video.webm" type='video/webm'>-->
+    <!--width="100%" height="100%" -->
   </video>
 </section>
 <section id="about">
@@ -30,15 +31,15 @@ locale: en
   <div class="slide"><img src="/assets/images/home.jpg"></div>
 </section>
 <section id="flavors"
-  data-1500="background-color:#da4c32"
-  data-2000="background-color:#bdc86e"
-  data-2500="background-color:#dfac40"
-  data-2500="background-color:#cb232f"
+  data-_applePie="background-color:#da4c32"
+  data-_margarita="background-color:#bdc86e"
+  data-_royalFlush="background-color:#dfac40"
+  data-_screwdriver="background-color:#cb232f"
   >
   <h2 class="visuallyhidden">{{ "The Flavors of Stout21" | localize }}</h2>
-  <div class="cans" data-start="!position:relative;!top:0" data-0-top="!position:fixed;left:0;!top:0;padding-top:12.5%">
+  <div class="cans" data-start="!position:relative;" data-0-top="!position:fixed;">
     {% comment %}This is all one-lined to ensure that the inline-block style of images is collapsed{% endcomment %}
-    {% for flavor in site.locales.en.flavors %}{% assign start = 500 * forloop.index + 500 %}{% assign end = 500 * forloop.index * 1000 %}<img data-{{ start }}="transform:scale(0.5);opacity:0.6" data-{{ end }}="transform:scale(1);opacity:1"  id="flavor{{ flavor[name"] | camelcase }}" src="/assets/images/{{ flavor['img'] }}" alt="The {{ flavor['name'] }} Beverage">{% endfor %}
+    {% for flavor in site.locales.en.flavors %}<img data-200-top="transform:scale(0.875);opacity:0.3" data--500-top="transform:scale(0.875);opacity:0.3" data-top="transform:scale(1.1);opacity:1;~z-index:3;" data--300-top="transform:scale(1.1);opacity:1;~z-index:3;"data-anchor-target=".flavor{{ flavor["name"] | camelcase }}" id="flavor{{ flavor[name"] | camelcase }}" src="/assets/images/{{ flavor['img'] }}" alt="The {{ flavor['name'] }} Beverage">{% endfor %}
   </div>
   {% for flavor in site.locales.en.flavors %}
     <!--TODO: localize flavors-->

@@ -949,7 +949,6 @@
     if (val.match(/^#/)) {
       val = _parseHex(val.replace(/^#|\s+/g, ''));
     }
-    console.log('_parseProp', val);
 
     //One special case, where floats don't work.
     //We replace all occurences of rgba colors
