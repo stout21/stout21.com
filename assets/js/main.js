@@ -1,6 +1,16 @@
 (function (skrollr, _V_) {
+  var skrl;
 
-  var skrl = skrollr.init();
+  skrollr.menu.init(skrl, {
+    animate: true,
+    duration: 500,
+    easing: 'swing'
+  });
+
+  $(function() {
+    skrl = skrollr.init();
+  });
+
   var player = _V_('the-video');
   console.log(player);
 

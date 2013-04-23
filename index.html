@@ -23,9 +23,9 @@ locale: en
   </video>
 </section>
 <section id="about">
-  <div class="about-content" data-0="transform:translateX(-1000px)" data-600="transform[swing]:translateX(0px)">
-    <h2 data-0="transform:translateX(-200px)" data-660="transform[swing]:translateX(0px)">{{ "About Stout21" | localize }}</h2>
-    <p data-0="transform:translateX(-600px)" data-700="transform[swing]:translateX(0px)">{{ 'about_us' | localize }}</p>
+  <div class="about-content" data-500-top="transform:translateX(-1000px)" data-0-top="transform[swing]:translateX(0px)">
+    <h2 data-500-top="transform:translateX(-200px)" data--198-top="transform[swing]:translateX(0px)">{{ "About Stout21" | localize }}</h2>
+    <p data-700-top="transform:translateX(-200px)" data--244-top="transform[swing]:translateX(0px)">{{ 'about_us' | localize }}</p>
   </div>
   <div class="slide"><img src="/assets/images/home.jpg"></div>
 </section>
@@ -36,7 +36,7 @@ locale: en
   data-2500="background-color:#cb232f"
   >
   <h2 class="visuallyhidden">{{ "The Flavors of Stout21" | localize }}</h2>
-  <div class="cans" data-1999="position:absolute;top:-400px" data-2000="position:fixed;left:0;top:12.5%">
+  <div class="cans" data-start="!position:relative;!top:0" data-0-top="!position:fixed;left:0;!top:0;padding-top:12.5%">
     {% comment %}This is all one-lined to ensure that the inline-block style of images is collapsed{% endcomment %}
     {% for flavor in site.locales.en.flavors %}{% assign start = 500 * forloop.index + 500 %}{% assign end = 500 * forloop.index * 1000 %}<img data-{{ start }}="transform:scale(0.5);opacity:0.6" data-{{ end }}="transform:scale(1);opacity:1"  id="flavor{{ flavor[name"] | camelcase }}" src="/assets/images/{{ flavor['img'] }}" alt="The {{ flavor['name'] }} Beverage">{% endfor %}
   </div>
