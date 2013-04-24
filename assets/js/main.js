@@ -3,15 +3,7 @@
   var $w = $(window).on('resize', onResize);
   var player = _V_('the-video');
 
-  skrollr.menu.init(skrl, {
-    animate: true,
-    duration: 500,
-    easing: 'swing'
-  });
-
   console.log(player);
-
-  window.skrl = skrl;
 
   $('a[href=#play-video]').on('click', function(e) {
     e.preventDefault();
@@ -80,6 +72,15 @@
     skrl = skrollr.init({
       constants: CONSTANTS
     });
+
+    skrollr.menu.init(skrl, {
+      animate: true,
+      duration: 500,
+      easing: 'swing'
+    });
+
+    window.skrl = skrl;
+
 
     setTimeout(function() {
       onResize();
