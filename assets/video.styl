@@ -96,8 +96,8 @@ body.vjs-full-window
   padding: 0
   height: 2.6em
   color: #fff
-  border-top: 1px solid #404040
-  background: linear-gradient(top,#242424 50%,#1f1f1f 50%,#171717 100%)
+  //border-top: 1px solid #404040
+  //background: linear-gradient(top,#242424 50%,#1f1f1f 50%,#171717 100%)
   visibility: hidden
   opacity: 0
 
@@ -172,6 +172,7 @@ body.vjs-full-window
 .vjs-default-skin .vjs-volume-control
   width: 5em
   float: right
+  display none
 
 .vjs-default-skin .vjs-volume-bar
   position: relative
@@ -200,54 +201,56 @@ body.vjs-full-window
   border: 1px solid #fff
   border-radius: .6em
 
-.vjs-default-skin div.vjs-progress-control
-  position: absolute
-  left: 4.8em
-  right: 4.8em
-  height: 1.0em
-  width: auto
-  top: -1.3em
-  border-bottom: 1px solid #1f1f1f
-  border-top: 1px solid #222
-  background: linear-gradient(top,#333,#222)
+/* @group progress control I care about */
 
-.vjs-default-skin .vjs-progress-holder
-  position: relative
-  cursor: pointer !important
-  padding: 0
-  margin: 0
-  height: 1.0em
-  border-radius: .6em
-  background: linear-gradient(top,#111,#262626)
+.vjs-controls.vjs-fade-out
+  opacity 1 !important
 
-.vjs-default-skin .vjs-progress-holder .vjs-play-progress,.vjs-default-skin .vjs-progress-holder .vjs-load-progress
-  position: absolute
-  display: block
-  height: 1.0em
-  margin: 0
-  padding: 0
-  left: 0
-  top: 0
-  border-radius: .6em
+.vjs-default-skin
+  .vjs-progress-control
+    absolute left right
+    height: 0.25em
+    width: auto
+    background: rgb(200,28,46)
 
-.vjs-default-skin .vjs-play-progress
-  background: linear-gradient(top,#efefef 0,#f5f5f5 50%,#dbdbdb 50%,#f1f1f1 100%)
-  //filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#efefef',endColorstr='#f1f1f1',GradientType=0)
+  .vjs-progress-holder
+    position: relative
+    cursor: pointer !important
+    padding: 0
+    margin: 0
+    height: 0.25em
+    background: rgb(200,28,46)
 
-.vjs-default-skin .vjs-load-progress
-  opacity: .8
-  background: linear-gradient(top,#666,#333)
+    .vjs-play-progress,
+    .vjs-load-progress
+      absolute top left
+      display: block
+      height: 1.0em
+      margin: 0
+      padding: 0
+      border-radius: .6em
 
-.vjs-default-skin div.vjs-seek-handle
-  position: absolute
-  width: 16px
-  height: 16px
-  margin-top: -0.3em
-  left: 0
-  top: 0
-  background: url('video-js.png') 0 -50px
-  border-radius: .8em
-  box-shadow: 0 2px 4px 0 #000
+  /*
+  .vjs-play-progress
+    background: linear-gradient(top,#efefef 0,#f5f5f5 50%,#dbdbdb 50%,#f1f1f1 100%)
+    //filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#efefef',endColorstr='#f1f1f1',GradientType=0)
+
+  .vjs-load-progress
+    opacity: .8
+    background: linear-gradient(top,#666,#333)
+  */
+
+  .vjs-seek-handle
+    absolute left 0 top 50%
+    width: 0.5em
+    height: 0.5em
+    margin-top: -0.333em
+    border-radius: 0.8em
+    background #000
+    border: 2px solid #fff
+
+
+/* @end progress control I care about */
 
 .vjs-default-skin .vjs-time-controls
   position: absolute
@@ -264,18 +267,34 @@ body.vjs-full-window
   font-family: Helvetica,Arial,sans-serif
   background: linear-gradient(top,#333,#222)
 
-.vjs-default-skin .vjs-current-time
-  left: 0
+/* @group stuff I am hiding */
 
-.vjs-default-skin .vjs-duration
-  right: 0
-  display: none
+.vjs-default-skin
+  .vjs-current-time
+    left: 0
+    display: none
 
-.vjs-default-skin .vjs-remaining-time
-  right: 0
+  .vjs-duration
+    right: 0
+    display: none
+
+  .vjs-remaining-time
+    right: 0
+    display: none
+
+  .vjs-fullscreen-control
+    width: 3.8em
+    cursor: pointer !important
+    float: right
+    display: none
+
+  .vjs-big-play-button
+    display: none
 
 .vjs-time-divider
   display: none
+
+/* @end stuff I am hiding */
 
 .vjs-default-skin .vjs-time-control
   font-size: 1em
@@ -289,11 +308,6 @@ body.vjs-full-window
 .vjs-secondary-controls
   float: right
 
-.vjs-default-skin .vjs-fullscreen-control
-  width: 3.8em
-  cursor: pointer !important
-  float: right
-
 .vjs-default-skin .vjs-fullscreen-control div
   width: 16px
   height: 16px
@@ -303,8 +317,8 @@ body.vjs-full-window
 .vjs-default-skin.vjs-fullscreen .vjs-fullscreen-control div
   background: url('video-js.png') -75px 0
 
-.vjs-default-skin .vjs-big-play-button
-  display: none
+
+/* @group loading spinner */
 
 .vjs-loading-spinner
   display: none
@@ -323,7 +337,7 @@ body.vjs-full-window
   -moz-animation-iteration-count: infinite
   -moz-animation-timing-function: linear
 
-undefinedundefineddiv.vjs-loading-spinner .ball1
+div.vjs-loading-spinner .ball1
   opacity: .12
   position: absolute
   left: 20px
@@ -411,6 +425,9 @@ div.vjs-loading-spinner .ball8
   border-radius: 13px
   border: 1px solid #ccc
 
+/* @end loading spinner */
+// @group stuff I can probably delete
+
 .vjs-default-skin .vjs-menu-button
   float: right
   margin: .2em .5em 0 0
@@ -445,7 +462,8 @@ div.vjs-loading-spinner .ball8
   box-shadow: 0 2px 4px 0 #000
   overflow: auto
 
-.vjs-default-skin .vjs-menu-button:focus ul,.vjs-default-skin .vjs-menu-button:hover ul
+.vjs-default-skin .vjs-menu-button:focus ul,
+.vjs-default-skin .vjs-menu-button:hover ul
   display: block
   list-style: none
 
@@ -488,4 +506,6 @@ div.vjs-loading-spinner .ball8
 .vjs-default-skin .vjs-chapters-button ul
   width: 20em
   left: -8.5em
+
+// @end stuff I can probably delete
 
