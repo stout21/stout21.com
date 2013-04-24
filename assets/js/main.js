@@ -63,9 +63,9 @@
 
   $(function() {
     var CONSTANTS = {
-      applePie: $('.flavorApplePie').offset().top,
+      applepie: $('.flavorApplePie').offset().top,
       margarita: $('.flavorMargarita').offset().top,
-      royalFlush: $('.flavorRoyalFlush').offset().top,
+      royalflush: $('.flavorRoyalFlush').offset().top,
       screwdriver: $('.flavorScrewdriver').offset().top
     };
 
@@ -84,7 +84,7 @@
 
     setTimeout(function() {
       onResize();
-    }, 300);
+    }, 1000);
   });
 
 })(window.skrollr, window._V_);
