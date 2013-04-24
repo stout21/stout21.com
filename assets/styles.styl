@@ -445,6 +445,7 @@ body
   background rgba(0,0,0,0.333)
   padding 20% 10%
   width 36%
+  z-index 3
   h2
     color rgb(216,11,40)
     margin 0
@@ -460,6 +461,13 @@ body
     border-bottom 500px solid rgba(0,0,0,0.333)
     border-left 300px solid rgba(0,0,0,0.333)
     border-top 800px solid transparent
+
+.slides
+  position relative
+.slide
+  display none
+.slide:first-child
+  display block
 
 /* end about @end */
 /* @group flavors */

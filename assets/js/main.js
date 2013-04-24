@@ -1,6 +1,6 @@
 (function (skrollr, _V_) {
-  var skrl;
-  var $w = $(window).on('resize', onResize), w, h;
+  var skrl, w, h;
+  var $w = $(window).on('resize', onResize);
   var player = _V_('the-video');
 
   skrollr.menu.init(skrl, {
@@ -12,7 +12,6 @@
   console.log(player);
 
   window.skrl = skrl;
-
 
   $('a[href=#play-video]').on('click', function(e) {
     e.preventDefault();
@@ -26,11 +25,9 @@
   }
 
   function onScroll() {
-    console.log('scroll handler');
     var offsetTop = $('#about').offset().top;
     var currentScroll = $w.scrollTop();
     if (currentScroll >= offsetTop) {
-      console.log('stop that video');
       player.pause();
       $w.off('scroll');
     }
@@ -84,7 +81,9 @@
       constants: CONSTANTS
     });
 
-    onResize();
+    setTimeout(function() {
+      onResize();
+    }, 300);
   });
 
 })(window.skrollr, window._V_);
