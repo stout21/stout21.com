@@ -81,7 +81,6 @@
 
     window.skrl = skrl;
 
-
     setTimeout(function() {
       onResize();
     }, 1000);

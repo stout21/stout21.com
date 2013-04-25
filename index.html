@@ -23,13 +23,12 @@ locale: en
   </video>
 </section>
 <section id="about">
-  <div class="about-content" data-500-top="transform:translateX(-1000px)" data-0-top="transform[swing]:translateX(0px)">
-    <h2 data-500-top="transform:translateX(-200px)" data--198-top="transform[swing]:translateX(0px)">{{ "About Stout21" | localize }}</h2>
-    <p data-700-top="transform:translateX(-200px)" data--244-top="transform[swing]:translateX(0px)">{{ 'about_us' | localize }}</p>
+  <div class="about-content" data-anchor-target="#about" data-500-top="transform:translateX(-1000px)" data-0-top="transform:translateX(0px)">
+    <h2 data-anchor-target="#about" data-500-top="transform[swing]:translateX(-400px)" data-100-top="transform[swing]:translateX(0px)">{{ "About Stout21" | localize }}</h2>
+    <p data-anchor-target="#about" data-900-top="transform[swing]:translateX(-800px)" data-0-top="transform[swing]:translateX(0px)">{{ 'about_us' | localize }}</p>
   </div>
-  <div class="slides">
-    {% for number in (1..9) %}<div class="slide"><img src="/assets/images/stills/0{{ number }}.jpg"></div>{% endfor %}
-  </div>
+  <div class="slide"><img src="/assets/images/about.png"></div>
+  {% comment %}<div class="slides">{% for number in (1..9) %}<div class="slide"><img src="/assets/images/stills/0{{ number }}.jpg"></div>{% endfor %}</div>{% endcomment %}
 </section>
 <section id="flavors"
   data-_applepie="background-color:#da4c32"
