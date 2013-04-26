@@ -30,21 +30,41 @@ locale: en
   <div class="slide"><img src="/assets/images/about.png"></div>
   {% comment %}<div class="slides">{% for number in (1..9) %}<div class="slide"><img src="/assets/images/stills/0{{ number }}.jpg"></div>{% endfor %}</div>{% endcomment %}
 </section>
+
 <section id="flavors"
-  data-_applepie="background-color:#da4c32"
-  data-_margarita="background-color:#bdc86e"
-  data-_royalflush="background-color:#dfac40"
-  data-_screwdriver="background-color:#cb232f"
+  {% for i in (1..4) %}
+    {% assign pixel = i | minus: 1 | times: 2000 %}
+    {% case i %}
+      {% when 1 %}{% assign color = '#da4c32' %}
+      {% when 2 %}{% assign color = '#bdc86e' %}
+      {% when 3 %}{% assign color = '#dfac40' %}
+      {% else %}{% assign color = '#cb232f' %}
+    {% endcase %}
+    data--{{ pixel }}-top="background-color:{{ color }}"
+  {% endfor %}
+  style="height:10000px"
   >
   <h2 class="visuallyhidden">{{ "The Flavors of Stout21" | localize }}</h2>
   <div class="cans" data-anchor-target="#flavors" data-start="!position:relative;" data-top="!position:fixed;">
     {% comment %}This is all one-lined to ensure that the inline-block style of images is collapsed{% endcomment %}
     {% assign cansOut = "transform:scale(0.875);opacity:0.3" %}
     {% assign cansIn = "transform:scale(1.1);opacity:1;!z-index:3;" %}
-    <img data-anchor-target="#flavors" data-0-top="{{ cansOut }}" data--300-top="{{ cansIn }}" data--1300-top="{{ cansIn }}" data--1600-top="{{ cansOut }}" id="flavorApplePie" src="/assets/images/bottle-applepie.png" alt="The Applie Pie Beverage">
-    <img data-anchor-target="#flavors" data-0-top="{{ cansOut }}" data--1600-top="{{ cansOut }}" data--1900-top="{{ cansIn }}" data--2900-top="{{ cansIn }}" data-3200-top="{{ cansOut }}" id="flavorMargarita" src="/assets/images/bottle-margarita.png" alt="The Margarita Beverage">
-    <!--<img data-anchor-target="#flavors" data-0-top="transform:scale(0.875);opacity:0.3" data-300-top="transform:scale(1.1);opacity:1;!z-index:3;" data-1300="transform:scale(1.1);opacity:1;!z-index:3;" data-1600="transform:scale(0.875);opacity:0.3" id="flavorApplePie" src="/assets/images/bottle-applepie.png" alt="The Applie Pie Beverage">-->
-    <!--<img data-anchor-target="#flavors" data-0-top="transform:scale(0.875);opacity:0.3" data-1600-top="transform:scale(0.875);opacity:0.3" data-1900="transform:scale(1.1);opacity:1;!z-index:3;" data-2900="transform:scale(1.1);opacity:1;!z-index:3;" data-3200="transform:scale(0.875);opacity:0.3" id="flavorMargarita" src="/assets/images/bottle-margarita.png" alt="The Margarita Beverage">-->
+    {% for flavor in site.locales.en.flavors %}
+      {% assign startState = 0 %}
+      {% assign animationStart = forloop.index | minus: 1 | times: 2000 | plus: 300 %}
+      {% assign animationIn = animationStart | plus: 300 %}
+      {% assign animationEnd = animationIn | plus: 1000 %}
+      {% assign endState = animationEnd | plus: 300 %}
+      <img
+        data-anchor-target="#flavors"
+        data-{{ startState }}-top="{{ cansOut }}"
+        data--{{ animationStart }}-top="{{ cansOut }}"
+        data--{{ animationIn }}-top="{{ cansIn }}"
+        data--{{ animationEnd }}-top="{{ cansIn }}"
+        data--{{ endState }}-top="{{ cansOut }}"
+        src="/assets/images/{{ flavor['img'] }}"
+        alt="The {{ flavor['name'] }} Beverage">
+    {% endfor %}
   </div>
   {% for flavor in site.locales.en.flavors %}
     <!--TODO: localize flavors-->
@@ -55,9 +75,7 @@ locale: en
     {% assign endState = animationEnd | plus: 300 %}
 
     {% assign nameOut = "opacity:0;transform:translateX(100%)" %}
-    {% assign descriptionOut = "opacity:0;transform:translateX(100%)" %}
     {% assign nameIn = "transform:translateX(0%);opacity:1;!position:fixed" %}
-    {% assign descriptionIn = "transform:translateX(0%);opacity:1;!position:fixed" %}
 
     <article class="flavor flavor{{ flavor["name"] | camelcase }}"
       data-anchor-target="#flavors"
