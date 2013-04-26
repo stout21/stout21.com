@@ -296,7 +296,10 @@ textarea
 
 //html
 #flavors
-  background url('/assets/images/flavors-bg.png') no-repeat center center fixed
+  background-image url('/assets/images/flavors-bg.png')
+  background-repeat no-repeat
+  background-position top center
+  background-attachment fixed
   background-size cover
 
 body
@@ -482,6 +485,7 @@ h1,h2,h3,h4,h5,h6
 #flavors
   position relative
   overflow hidden
+  height: 4000px
 
 .cans
   absolute left 0 top 0
@@ -493,11 +497,13 @@ h1,h2,h3,h4,h5,h6
     max-height 70%
     max-width 33.3333%
 .flavor
-  padding: 30% 10% 10% 0
-  margin-left: 43.333%
+  padding: 10% 10% 10% 0
   height 500px
   font-family ubuntu
   text-align right
+  left: 43.3333%
+  top: 0
+  right: 0
   h3
     font-size: 3em
     font-weight bold
@@ -505,6 +511,8 @@ h1,h2,h3,h4,h5,h6
     text-transform uppercase
   p
     font-size 1.5em
+    &:first-line
+      width: 50%
 
 
 /* @end flavors */
