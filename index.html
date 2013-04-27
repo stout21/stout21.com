@@ -33,24 +33,34 @@ locale: en
 
 <section id="flavors"
   {% for i in (1..4) %}
-    {% assign pixel = i | minus: 1 | times: 2000 %}
+    {% assign pixel = i | minus: 1 | times: 2400 %}
     {% case i %}
       {% when 1 %}{% assign color = '#da4c32' %}
       {% when 2 %}{% assign color = '#bdc86e' %}
-      {% when 3 %}{% assign color = '#dfac40' %}
-      {% else %}{% assign color = '#cb232f' %}
+      {% when 3 %}{% assign color = '#cb232f' %}
+      {% else %}{% assign color = '#dfac40' %}
     {% endcase %}
     data--{{ pixel }}-top="background-color:{{ color }}"
   {% endfor %}
-  style="height:10000px"
+  {% for i in (1..4) %}
+    {% assign pixel = i | minus: 1 | times: 1800 %}
+    {% case i %}
+      {% when 1 %}{% assign color = '#da4c32' %}
+      {% when 2 %}{% assign color = '#bdc86e' %}
+      {% when 3 %}{% assign color = '#cb232f' %}
+      {% else %}{% assign color = '#dfac40' %}
+    {% endcase %}
+    data--{{ pixel }}-top="background-color:{{ color }}"
+  {% endfor %}
+  style="height:8714px;background-color:$da4c32;"
   >
   <h2 class="visuallyhidden">{{ "The Flavors of Stout21" | localize }}</h2>
-  <div class="cans" data-anchor-target="#flavors" data-start="!position:relative;" data-top="!position:fixed;">
+  <div class="cans" data-anchor-target="#flavors" data-start="!position:absolute;" data-top="!position:fixed;">
     {% comment %}This is all one-lined to ensure that the inline-block style of images is collapsed{% endcomment %}
     {% assign cansOut = "transform:scale(0.875);opacity:0.3" %}
     {% assign cansIn = "transform:scale(1.1);opacity:1;!z-index:3;" %}
     {% for flavor in site.locales.en.flavors %}
-      {% assign startState = 0 %}
+      {% assign startState = top %}
       {% assign animationStart = forloop.index | minus: 1 | times: 2000 | plus: 300 %}
       {% assign animationIn = animationStart | plus: 300 %}
       {% assign animationEnd = animationIn | plus: 1000 %}
@@ -89,5 +99,10 @@ locale: en
       <p>{{ flavor["description"] }}</p>
     </article>
   {% endfor %}
+  <img
+    data-anchor-target="#flavors"
+    data-1-top="!position:absolute;"
+    data-0-top="!position:fixed;!width:100%;!height:100%;"
+    src="/assets/images/flavors-bg.png">
 </section>
 

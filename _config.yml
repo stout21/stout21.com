@@ -18,18 +18,16 @@ locales:
     "Think And Drink Responsibly": "Think And Drink Responsibly"
     "The Flavors of Stout21": "The Flavors of Stout21"
     flavors:
-      - name: "Apple Pie"
-        description: "You wished your Mama could make Apple Pie like this"
-        img: "bottle-applepie.png"
-      - name: "Margarita"
-        description: "Forget the salt rimmed glass. This is a Stout21 Margarita"
-        img: "bottle-margarita.png"
       - name: "Royal Flush"
         description: "We weren&rsquo;t born into royalty, but tonight we drink ike kings"
         img: "bottle-royalflush.png"
+      - name: "Margarita"
+        description: "Forget the salt rimmed glass. This is a Stout21 Margarita"
+        img: "bottle-margarita.png"
       - name: "Screwdriver"
         description: "Who needs a tool when you&rsquo;ve got a good screw?"
         img: "bottle-screwdriver.png"
-
-
+      - name: "Apple Pie"
+        description: "You wished your Mama could make Apple Pie like this"
+        img: "bottle-applepie.png"
 
