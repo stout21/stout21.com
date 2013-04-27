@@ -10,6 +10,35 @@
     player.play();
   });
 
+  $('#how-old-you-be').on('click', 'button', function(e) {
+    if ($(this).hasClass('btn-confirm')) startup();
+    else soonYoungPadawan();
+
+    $('#how-old-you-be').off('click');
+  });
+
+  function startup() {
+    skrl = skrollr.init();
+
+    skrollr.menu.init(skrl, {
+      animate: true,
+      duration: 500,
+      easing: 'swing'
+    });
+
+    window.skrl = skrl;
+    $('#how-old-you-be').fadeOut();
+    $('#video').removeClass('isHidden');
+    $('.no-scrolling').removeClass('no-scrolling');
+  }
+
+  function soonYoungPadawan() {
+    $('#wrapper').children().not('#how-old-you-be').remove();
+    $('#wrapper').css({ background: 'url(/assets/images/home.png) no-repeat', 'background-size': '100% 100%', height: w });
+    $('#how-old-you-be button').remove();
+    $('#how-old-you-be').append('<p>Never fear, young padawan, you will be someday soon.</p>');
+  }
+
   function onResize() {
     w = $w.width();
     h = $w.height();
@@ -62,24 +91,6 @@
 
 
   $(function() {
-    var CONSTANTS = {
-      applepie: $('.flavorApplePie').offset().top,
-      margarita: $('.flavorMargarita').offset().top,
-      royalflush: $('.flavorRoyalFlush').offset().top,
-      screwdriver: $('.flavorScrewdriver').offset().top
-    };
-
-    skrl = skrollr.init({
-      constants: CONSTANTS
-    });
-
-    skrollr.menu.init(skrl, {
-      animate: true,
-      duration: 500,
-      easing: 'swing'
-    });
-
-    window.skrl = skrl;
 
     setTimeout(function() {
       onResize();
