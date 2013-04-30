@@ -3,8 +3,6 @@
   var $w = $(window).on('resize', onResize);
   var player = _V_('the-video');
 
-  console.log(player);
-
   $('a[href=#play-video]').on('click', function(e) {
     e.preventDefault();
     player.play();
@@ -26,7 +24,6 @@
       easing: 'swing'
     });
 
-    window.skrl = skrl;
     $('#how-old-you-be').fadeOut();
     $('#video').removeClass('isHidden');
     $('.no-scrolling').removeClass('no-scrolling');
@@ -36,7 +33,7 @@
     $('#wrapper').children().not('#how-old-you-be').remove();
     $('#wrapper').css({ background: 'url(/assets/images/home.png) no-repeat', 'background-size': '100% 100%', height: w });
     $('#how-old-you-be button').remove();
-    $('#how-old-you-be').append('<p>Never fear, young padawan, you will be someday soon.</p>');
+    $('#how-old-you-be').append('<p>Sorry, you must be at least 21 years of age to view this site.</p>');
   }
 
   function onResize() {
@@ -59,8 +56,6 @@
   });
 
   player.addEvent('play', function () {
-    console.log('play event');
-
     $('#video')
       .removeClass('isPaused')
       .addClass('isPlaying');
