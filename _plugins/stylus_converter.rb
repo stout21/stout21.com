@@ -15,7 +15,7 @@ module Jekyll
     def convert(content)
       begin
         command = Shellwords.escape content
-        `echo #{command} | stylus --use nib`
+        `echo #{command} | stylus --use nib --compress`
       rescue => e
         puts "Stylus Exception: #{e.message}"
       end
