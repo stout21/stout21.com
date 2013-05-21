@@ -403,6 +403,7 @@ h1,h2,h3,h4,h5,h6
       top -10%
 
 .btn
+  background-color #393d3c
   background linear-gradient(top, #181816, #393d3c)
   border 0
   color #fff
@@ -521,11 +522,31 @@ h1,h2,h3,h4,h5,h6
     font-size 1.5em
     padding-left 20%
 
+.inline-can
+  display none
 
 /* @end flavors */
 /* @group 35em min-width */
-@media only screen and (min-width: 35em)
-  // TODO
+@media only screen and (max-width: 540px)
+  .btn
+    padding 0.666em 1.333em
+    position relative
+    z-index 4
+  #how-old-you-be
+    font-size 0.666em
+    svg
+      display none
+    h2
+      padding 2.5% 2.5% 0
+    p
+      padding 0 2.5%
+    z-index 1000
+
+  #masthead
+    nav[role="navigation"],
+    .icon
+      display none
+
 
 /* end 35em min-width @end */
 /* @group 60em min-width tablet-esque */
@@ -536,6 +557,43 @@ h1,h2,h3,h4,h5,h6
 @media only screen and (max-width: 60em)
   // TODO
 /* end XXem min-width @end */
+.isFlat
+  .about-content
+    width 66%
+
+  .flavor
+    font-size 0.666em
+    padding 5% 2.5% 5% 25%
+    text-align left
+    position relative
+    left 0
+    height auto
+    p
+      padding-left 0
+  .cans
+    display none
+  .inline-can
+    display block
+    position absolute
+    top 2.5%
+    left 10%
+    float left
+    width: 10%
+
+  .flavorRoyalFlush
+    background-color #cb232f
+  .flavorMargarita
+    background-color #bdc86e
+  .flavorScrewdriver
+    background-color #da4c32
+  .flavorApplePie
+    background-color #dfac40
+
+  img[data-anchor-target="#flavors"]
+    display none
+
+  #flavors
+    height auto !important
 
 /* @group high-res mq */
 

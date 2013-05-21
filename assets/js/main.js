@@ -3,26 +3,31 @@
   var $w = $(window).on('resize', onResize);
   var player = _V_('the-video');
 
-  $('a[href=#play-video]').on('click', function(e) {
+  $('a[href=#play-video]').on('click touchstart touchend', function(e) {
     e.preventDefault();
     player.play();
   });
 
-  $('#how-old-you-be').on('click', 'button', function(e) {
+  $('#how-old-you-be').on('click touchstart touchend', 'button', function(e) {
     if ($(this).hasClass('btn-confirm')) startup();
     else soonYoungPadawan();
 
-    $('#how-old-you-be').off('click');
+    $('#how-old-you-be').off('click touchstart touchend');
   });
 
   function startup() {
-    skrl = skrollr.init();
+    if (w > 560) {
+      skrl = skrollr.init();
 
-    skrollr.menu.init(skrl, {
-      animate: true,
-      duration: 500,
-      easing: 'swing'
-    });
+      skrollr.menu.init(skrl, {
+        animate: true,
+        duration: 500,
+        easing: 'swing'
+      });
+    }
+    else {
+      $('html').addClass('isFlat');
+    }
 
     $('#how-old-you-be').fadeOut();
     $('#video').removeClass('isHidden');
@@ -62,11 +67,19 @@
 
     $w.on('scroll', throttle(onScroll, 100));
   });
-  player.addEvent('pause', function () {
+  player.addEvent('pause', onStop);
+  player.addEvent('ended', onStop);
+
+  player.addEvent('play', trackPlayStart);
+  player.addEvent('ended', trackPlayEnd);
+
+  function onStop() {
     $('#video')
       .removeClass('isPlaying')
       .addClass('isPaused');
-  });
+
+    this.el.querySelector('.vjs-poster').style.display = '';
+  }
 
   function setDimensions() {
     $('#video').height(h);
@@ -86,10 +99,17 @@
 
 
   $(function() {
-
     setTimeout(function() {
       onResize();
     }, 1000);
   });
+
+  function trackPlayStart() {
+    _gaq.push(['_trackEvent', 'Promo Video', 'Play']);
+  }
+
+  function trackPlayEnd() {
+    _gaq.push(['_trackEvent', 'Promo Video', 'Complete']);
+  }
 
 })(window.skrollr, window._V_);
