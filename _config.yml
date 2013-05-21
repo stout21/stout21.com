@@ -17,12 +17,12 @@ locales:
     "Under Age Boozers are Losers": "Under Age Boozers are Losers"
     "Think And Drink Responsibly": "Think And Drink Responsibly"
     "21": "You must be 21 years of age or older to access this site."
-    "I am 21": "Yes, I am old enough"
-    "Too young": "No, I am not that old yet"
+    "I am 21": "Yes, I am"
+    "Too young": "No, I am not"
     "The Flavors of Stout21": "The Flavors of Stout21"
     flavors:
       - name: "Royal Flush"
-        description: "We weren&rsquo;t born into royalty, but tonight we drink ike kings"
+        description: "We weren&rsquo;t born into royalty, but tonight we drink like kings"
         img: "bottle-royalflush.png"
       - name: "Margarita"
         description: "Forget the salt rimmed glass. This is a Stout21 Margarita"
@@ -31,6 +31,6 @@ locales:
         description: "Who needs a tool when you&rsquo;ve got a good screw?"
         img: "bottle-screwdriver.png"
       - name: "Apple Pie"
-        description: "You wished your Mama could make Apple Pie like this"
+        description: "You wish your Mama could make Apple Pie like this"
         img: "bottle-applepie.png"
 
