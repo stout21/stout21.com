@@ -93,6 +93,7 @@ module.exports = (grunt) ->
 
     jade: require('./grunt/jade')
     stylus: require('./grunt/stylus')
+    'ftp-deploy': require('./grunt/ftp')
 
   })
 
@@ -132,3 +133,7 @@ module.exports = (grunt) ->
       'build'
     ]
 
+  grunt.registerTask 'deploy', [
+      'build',
+      'ftp-deploy'
+    ]

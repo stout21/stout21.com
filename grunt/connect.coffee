@@ -1,6 +1,5 @@
 LIVERELOAD_PORT = require('./livereloadPort')
 mountFolder = (connect, dir) ->
-  console.log(require('path').resolve(dir))
   return connect.static(require('path').resolve(dir))
 
 lrSnippet = require('connect-livereload')({ port: LIVERELOAD_PORT })
