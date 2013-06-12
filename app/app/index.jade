@@ -1,39 +1,43 @@
 doctype 5
-html
+html.no-js
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
     title Stout21
     meta(name='description', content='')
     meta(name='viewport', content='width=device-width')
-    link(rel='stylesheet', href='styles/main.css')
+
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Ubuntu|Russo+One')
+    link(rel='stylesheet', href='/styles/main.css')
+    script(src='/scripts/video.js')
   body
     //if lt IE 9
       p.chromeframe You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.
 
-    .container
-      .hero-unit
-        h1 'Allo, 'Allo!
-        p You now have
-        ul
-          li HTML5 Boilerplate
-          li Twitter Bootstrap
-        p installed.
-        h3 Enjoy coding! - Yeoman
+  header#masthead(role='banner')
+    a.logo(href='#masthead')
+      img(src='/images/sprite.png', style='clip:rect(0px,233px,49px,0px)', alt='Stout 21')
+    nav(role='navigation')
+      ul
+        li: a(href='#about') About
+        li: a(href='#flavors') The Flavors
+    a.icon.icon-instagram(href='https://instagram.com/stout_21', rel='nofollow') Stout 21 on Instagram
+    a.icon.icon-facebook(href='https://www.facebook.com/Stout21', rel='nofollow') Stout 21 on Facebook
+  include indexContent
 
+  footer#footer(role='contentinfo')
+    //<h2>{{ "Under Age Boozers are Loses" | localize }}</h2>
+    .push Think And Drink Responsibly
+    div &copy; Stout21 #{ new Date().getFullYear() }
 
-      script
-        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src='//www.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g,s)}(document,'script'));
+  //-script(src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js")
+  // build:js scripts/main.js
+  script(src="bower_components/jquery/jquery.js")
+  script(src="/scripts/skrollr.js")
+  script(src="/scripts/skrollr.menu.js")
+  script(src="/scripts/main.js")
+  // endbuild
+  script
+    var _gaq=[['_setAccount','UA-40554518-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'));
 
-      // build:js scripts/main.js
-      script(src="bower_components/jquery/jquery.js")
-      script(src="scripts/main.js")
-      // endbuild
-
-      // build:js(.tmp) scripts/coffee.js
-      script(src="scripts/hello.js")
-      // endbuild
 

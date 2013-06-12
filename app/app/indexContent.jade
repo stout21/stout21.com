@@ -1,0 +1,72 @@
+- royalFlush = { name: 'Royal Flush', description: 'We weren&rsquo;t born into royalty, but tonight we drink like kings', img: 'bottle-royalflush.png' }
+- margarita = { name: 'Margarita', description: 'We weren&rsquo;t born into royalty, but tonight we drink like kings', img: 'bottle-margarita.png' }
+- screwdriver = { name: 'Screwdriver', description: 'Who needs a tool when you&rsquo;ve got a good screw?', img: 'bottle-screwdriver.png' }
+- applePie = { name: 'Apple Pie', description: 'You wish your Mama could make Apple Pie like this', img: 'bottle-applepie.png' }
+- flavors = [royalFlush, margarita, screwdriver, applePie]
+- camelcase = function(str) { return str; }
+
+#wrapper.no-scrolling
+
+  section#how-old-you-be
+    include _content/initial-logo.svg
+    h2 Under Age Boozers are Losers
+    p You must be 21 years of age or older to access this site.
+    button.btn.btn-confirm Yes, I am
+    button.btn.btn-nope No, I am not
+
+  section#video.isHidden
+    .the-stuff
+      include _content/content-logo.svg
+      div
+        a.btn(href="#play-video") Watch Film
+        a.btn(href="#flavors") The Flavors
+    video#the-video.video-js.vjs-default-skin(controls, preload="auto", width="100%", height="100%", poster="/images/home.png", data-setup="{}")
+      source(src="/video/desktop.mp4", type='video/mp4')
+      source(src="/video/desktop.ogv", type='video/ogg')
+  section#about
+    .about-content(data-anchor-target="#about", data-500-top="transform:translateX(-1000px)", data-0-top="transform:translateX(0px)")
+      h2(data-anchor-target="#about", data-500-top="transform[swing]:translateX(-400px)", data-100-top="transform[swing]:translateX(0px)") Stout Twenty One
+      p(data-anchor-target="#about", data-900-top="transform[swing]:translateX(-800px)", data-0-top="transform[swing]:translateX(0px)") Embraces your desire to be different. Only Stout21 combines popular flavors with one-of-a-kind bottle to produce a great tasting, smooth 3 oz. drink that embodies an irreverent and uninhibited personality. Using a distinctive beer base at 15% ABV (14% in certain states), Stout21 is available in four unique flavors.
+    .slide: img(src="/images/about.png")
+
+  <section id="flavors" data--2300-top="background-color:#cb232f" data--3600--top="background-color:#cb232f" style="height:8714px;background-color:#cb232f;">
+  each i in [0,1,2,3]
+    - pixel1 = i * 2000 + 300
+    - pixel2 = pixel1 + 1300
+    - color = i === 0 ? '#cb232f' : i === 1 ? '#bdc86e' : i === 2 ? '#da4c32'  : '#dfac40'
+    - animationStart = (i - 1) * 2000 + 300
+    - animationIn = animationStart + 300
+    - animationEnd = animationIn + 1000
+    h2.visuallyhidden The Flavors of Stout21
+    .cans(data-anchor-target="#flavors", data-start="!position:absolute;", data-top="!position:fixed;")
+      - cansOut = "transform:scale(0.875);opacity:0.3"
+      - cansIn = "transform:scale(1.1);opacity:1;!z-index:3;"
+      each flavor, i in flavors
+        - startState = 'top'
+        - animationStart = i * 2000 + 300
+        - animationIn = animationStart + 300
+        - animationEnd = animationIn + 1000
+        - endState = animationEnd + 300
+        <img data-anchor-target="#flavors" data-#{ startState }-top="#{ cansOut }" data--#{ animationStart }-top="#{ cansOut }" data--#{ animationIn }-top="#{ cansIn }" data--#{ animationEnd }-top="#{ cansIn }" data--#{ endState }-top="#{ cansOut }" src="/images/#{ flavor['img'] }" alt="The #{ flavor['name'] } Beverage">
+      each flavor, i in flavors
+        - startState = 0
+        - animationStart = i * 2000 + 300
+        - animationIn = animationStart + 300
+        - animationEnd = animationIn + 1000
+        - endState = animationEnd + 300
+
+        - nameOut = "opacity:0;transform:translateX(100%)"
+        - nameIn = "transform:translateX(0%);opacity:1;!position:fixed"
+
+        <article class="flavor flavor#{ camelcase(flavor["name"]) }" data-anchor-target="#flavors" data-#{ startState }-top="#{ nameOut }" data--#{ animationStart }-top="#{ nameOut }" data--#{ animationIn }-top="#{ nameIn }" data--#{ animationEnd }-top="#{ nameIn }" data--#{ endState }-top="#{ nameOut }">
+        h3= flavor["name"]
+        p!= flavor["description"]
+        img.inline-can(src="/images/#{ flavor['img'] }", alt="The #{ flavor['name'] } Beverage")
+        </article>
+  img(
+    data-anchor-target="#flavors",
+    data-1-top="!position:absolute;",
+    data-0-top="!position:fixed;!width:100%;!height:100%;",
+    src="/images/flavors-bg.png")
+  </section>
+

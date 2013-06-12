@@ -1,5 +1,6 @@
 LIVERELOAD_PORT = require('./livereloadPort')
 mountFolder = (connect, dir) ->
+  console.log(require('path').resolve(dir))
   return connect.static(require('path').resolve(dir))
 
 lrSnippet = require('connect-livereload')({ port: LIVERELOAD_PORT })
@@ -14,7 +15,7 @@ module.exports =
       middleware: (connect) ->
         [
           mountFolder(connect, '.tmp')
-          mountFolder(connect, '<%= yeoman.app %>')
+          mountFolder(connect, 'app')
           lrSnippet
         ]
   test:
@@ -28,7 +29,7 @@ module.exports =
     options:
       middleware: (connect) ->
         [
-          mountFolder(connect, '<%= yeoman.dist %>')
+          mountFolder(connect, 'dist')
         ]
 
 
