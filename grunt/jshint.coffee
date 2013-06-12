@@ -2,8 +2,10 @@ module.exports =
   options:
     jshintrc: '.jshintrc'
   all: [
-    '<%= yeoman.app %>/scripts/{,*/}*.js',
-    '!<%= yeoman.app %>/scripts/vendor/*',
+    'app/scripts/{,*/}*.js',
+    '!app/scripts/vendor/*',
+    '!app/scripts/skrollr*',
+    '!app/scripts/video.js*',
     'test/spec/{,*/}*.js'
   ]
 

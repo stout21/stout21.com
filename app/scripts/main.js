@@ -12,7 +12,9 @@
     if ($(this).hasClass('btn-confirm')) startup();
     else soonYoungPadawan();
 
-    $('#how-old-you-be').off('click touchstart touchend');
+    if (event.type !== 'touchstart') {
+      $('#how-old-you-be').off('click touchstart touchend');
+    }
   });
 
   function startup() {
