@@ -29,40 +29,33 @@
       p(data-anchor-target="#about", data-900-top="transform[swing]:translateX(-800px)", data-0-top="transform[swing]:translateX(0px)") Embraces your desire to be different. Only Stout21 combines popular flavors with one-of-a-kind bottle to produce a great tasting, smooth 3 oz. drink that embodies an irreverent and uninhibited personality. Using a distinctive beer base at 15% ABV (14% in certain states), Stout21 is available in four unique flavors.
     .slide: img(src="/images/about.png")
 
-  <section id="flavors" data--2300-top="background-color:#cb232f" data--3600--top="background-color:#cb232f" style="height:8714px;background-color:#cb232f;">
-  each i in [0,1,2,3]
-    - pixel1 = i * 2000 + 300
-    - pixel2 = pixel1 + 1300
-    - color = i === 0 ? '#cb232f' : i === 1 ? '#bdc86e' : i === 2 ? '#da4c32'  : '#dfac40'
-    - animationStart = (i - 1) * 2000 + 300
+  | !{flavorsSection}
+  h2.visuallyhidden The Flavors of Stout21
+  .cans(data-anchor-target="#flavors", data-start="!position:absolute;", data-top="!position:fixed;")
+    - cansOut = "transform:scale(0.875);opacity:0.3"
+    - cansIn = "transform:scale(1.1);opacity:1;!z-index:3;"
+    each flavor, i in flavors
+      - startState = 'top'
+      - animationStart = i * 2000 + 300
+      - animationIn = animationStart + 300
+      - animationEnd = animationIn + 1000
+      - endState = animationEnd + 300
+      <img data-anchor-target="#flavors" data-#{ startState }-top="#{ cansOut }" data--#{ animationStart }-top="#{ cansOut }" data--#{ animationIn }-top="#{ cansIn }" data--#{ animationEnd }-top="#{ cansIn }" data--#{ endState }-top="#{ cansOut }" src="/images/#{ flavor['img'] }" alt="The #{ flavor['name'] } Beverage">
+  each flavor, i in flavors
+    - startState = 0
+    - animationStart = i * 2000 + 300
     - animationIn = animationStart + 300
     - animationEnd = animationIn + 1000
-    h2.visuallyhidden The Flavors of Stout21
-    .cans(data-anchor-target="#flavors", data-start="!position:absolute;", data-top="!position:fixed;")
-      - cansOut = "transform:scale(0.875);opacity:0.3"
-      - cansIn = "transform:scale(1.1);opacity:1;!z-index:3;"
-      each flavor, i in flavors
-        - startState = 'top'
-        - animationStart = i * 2000 + 300
-        - animationIn = animationStart + 300
-        - animationEnd = animationIn + 1000
-        - endState = animationEnd + 300
-        <img data-anchor-target="#flavors" data-#{ startState }-top="#{ cansOut }" data--#{ animationStart }-top="#{ cansOut }" data--#{ animationIn }-top="#{ cansIn }" data--#{ animationEnd }-top="#{ cansIn }" data--#{ endState }-top="#{ cansOut }" src="/images/#{ flavor['img'] }" alt="The #{ flavor['name'] } Beverage">
-      each flavor, i in flavors
-        - startState = 0
-        - animationStart = i * 2000 + 300
-        - animationIn = animationStart + 300
-        - animationEnd = animationIn + 1000
-        - endState = animationEnd + 300
+    - endState = animationEnd + 300
 
-        - nameOut = "opacity:0;transform:translateX(100%)"
-        - nameIn = "transform:translateX(0%);opacity:1;!position:fixed"
+    - nameOut = "opacity:0;transform:translateX(100%)"
+    - nameIn = "transform:translateX(0%);opacity:1;!position:fixed"
 
-        <article class="flavor flavor#{ camelcase(flavor["name"]) }" data-anchor-target="#flavors" data-#{ startState }-top="#{ nameOut }" data--#{ animationStart }-top="#{ nameOut }" data--#{ animationIn }-top="#{ nameIn }" data--#{ animationEnd }-top="#{ nameIn }" data--#{ endState }-top="#{ nameOut }">
-        h3= flavor["name"]
-        p!= flavor["description"]
-        img.inline-can(src="/images/#{ flavor['img'] }", alt="The #{ flavor['name'] } Beverage")
-        </article>
+    <article class="flavor flavor#{ camelcase(flavor["name"]) }" data-anchor-target="#flavors" data-#{ startState }-top="#{ nameOut }" data--#{ animationStart }-top="#{ nameOut }" data--#{ animationIn }-top="#{ nameIn }" data--#{ animationEnd }-top="#{ nameIn }" data--#{ endState }-top="#{ nameOut }">
+    h3= flavor["name"]
+    p!= flavor["description"]
+    img.inline-can(src="/images/#{ flavor['img'] }", alt="The #{ flavor['name'] } Beverage")
+    </article>
   img(
     data-anchor-target="#flavors",
     data-1-top="!position:absolute;",
