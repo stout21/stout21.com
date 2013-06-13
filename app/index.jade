@@ -30,13 +30,15 @@ html.no-js
     .push Think And Drink Responsibly
     div &copy; Stout21 #{ new Date().getFullYear() }
 
-  //-script(src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js")
-  // build:js scripts/main.js
-  script(src="bower_components/jquery/jquery.js")
-  script(src="/scripts/skrollr.js")
-  script(src="/scripts/skrollr.menu.js")
-  script(src="/scripts/main.js")
-  // endbuild
+  if env === 'production'
+    script(src="/main.js")
+  else
+    //-script(src="/bower_components/video.js/video.js")
+    script(src="/bower_components/jquery/jquery.js")
+    script(src="/bower_components/skrollr/src/skrollr.js")
+    script(src="/scripts/video.js")
+    script(src="/scripts/skrollr.menu.js")
+    script(src="/scripts/main.js")
   script
     var _gaq=[['_setAccount','UA-40554518-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'));
 
