@@ -38,9 +38,10 @@ module.exports = (grunt) ->
             "app/bower_components/jquery/jquery.js"
             #"app/bower_components/skrollr/src/skrollr.js"
             #"app/bower_components/video.js/video.js"
-            "app/scripts/video.js"
-            "app/scripts/skrollr.js"
-            "app/scripts/skrollr.menu.js"
+            "app/scripts/vendor/jquery.tap.js"
+            "app/scripts/vendor/video.js"
+            "app/scripts/vendor/skrollr.js"
+            "app/scripts/vendor/skrollr.menu.js"
             "app/scripts/main.js"
           ]
     rev:
