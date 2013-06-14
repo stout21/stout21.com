@@ -49,7 +49,8 @@ module.exports =
         flavorsSection: (() ->
           attrs = []
           colors = [ '#cb232f', '#bdc86e', '#da4c32', '#dfac40' ]
-          [0,1,3,4].forEach (i) ->
+          [0,1,2,3].forEach (i) ->
+            console.log(i, colors[i])
             pixel1 = i * 2000 + 300
             pixel2 = pixel1 + 1300
             color = colors[i]

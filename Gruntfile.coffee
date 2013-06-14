@@ -36,8 +36,10 @@ module.exports = (grunt) ->
         files:
           'dist/main.js': [
             "app/bower_components/jquery/jquery.js"
-            "app/bower_components/skrollr/src/skrollr.js"
-            "app/bower_components/video.js/video.js"
+            #"app/bower_components/skrollr/src/skrollr.js"
+            #"app/bower_components/video.js/video.js"
+            "app/scripts/video.js"
+            "app/scripts/skrollr.js"
             "app/scripts/skrollr.menu.js"
             "app/scripts/main.js"
           ]
