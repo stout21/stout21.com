@@ -3,18 +3,14 @@
   var $w = $(window).on('resize', onResize);
   var player = _V_('the-video');
 
-  $('a[href=#play-video]').on('click touchstart touchend', function(e) {
+  $('a[href=#play-video]').on('tap', function(e) {
     e.preventDefault();
     player.play();
   });
 
-  $('#how-old-you-be').on('click touchstart touchend', 'button', function(e) {
+  $('#how-old-you-be').one('tap', 'button', function(e) {
     if ($(this).hasClass('btn-confirm')) startup();
     else soonYoungPadawan();
-
-    if (event.type !== 'touchstart') {
-      $('#how-old-you-be').off('click touchstart touchend');
-    }
   });
 
   function startup() {
