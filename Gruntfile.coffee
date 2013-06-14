@@ -32,7 +32,18 @@ module.exports = (grunt) ->
     # check index.html to edit your build targets
     # enable this task if you prefer defining your build targets here
     uglify:
-      dist: {}
+      dist:
+        files:
+          'dist/main.js': [
+            "app/bower_components/jquery/jquery.js"
+            #"app/bower_components/skrollr/src/skrollr.js"
+            #"app/bower_components/video.js/video.js"
+            "app/scripts/vendor/jquery.tap.js"
+            "app/scripts/vendor/video.js"
+            "app/scripts/vendor/skrollr.js"
+            "app/scripts/vendor/skrollr.menu.js"
+            "app/scripts/main.js"
+          ]
     rev:
       dist:
         files:
@@ -45,7 +56,7 @@ module.exports = (grunt) ->
     useminPrepare:
       options:
         dest: '<%= yeoman.dist %>'
-      html: '<%= yeoman.app %>/index.html'
+      html: '<%= yeoman.dist %>/index.html'
     usemin:
       options:
         dirs: ['<%= yeoman.dist %>']
@@ -56,7 +67,7 @@ module.exports = (grunt) ->
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg}',
+          src: '{,*/}*.{png,jpg,jpeg,webp}',
           dest: '<%= yeoman.dist %>/images'
         }]
     svgmin:
@@ -77,9 +88,10 @@ module.exports = (grunt) ->
         'stylus'
       ],
       dist: [
+        'uglify',
         'coffee',
         'stylus:dist',
-        'imagemin',
+        #'imagemin',
         'svgmin'
       ]
 
@@ -118,13 +130,13 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'build', [
       'clean:dist',
-      'useminPrepare',
+      'jade:build',
+      #'useminPrepare',
       'concurrent:dist',
       #'concat',
-      'uglify',
       'copy',
-      'rev',
-      'usemin'
+      #'rev',
+      #'usemin'
     ]
 
   grunt.registerTask 'default', [

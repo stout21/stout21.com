@@ -13,5 +13,6 @@ module.exports =
       #  'bar/moo'  #  to `paths`, or a plugin you added under `use`
       #]
   dist:
-    options: {}
+    files:
+      '<%= yeoman.dist %>/styles/main.css': '<%= yeoman.app %>/styles/main.styl'
 
