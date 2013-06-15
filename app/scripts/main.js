@@ -8,7 +8,7 @@
     player.play();
   });
 
-  $('#how-old-you-be').one('tap', 'button', function(e) {
+  $('#how-old-you-be').on('tap', 'button', function(e) {
     if ($(this).hasClass('btn-confirm')) startup();
     else soonYoungPadawan();
   });

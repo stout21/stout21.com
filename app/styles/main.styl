@@ -474,6 +474,9 @@ h1,h2,h3,h4,h5,h6
     font-size 1.5em
     margin 0
     text-transform uppercase
+  .btn
+    position: relative
+    z-index: 99
 
 /* @end how old are you */
 /* @group flavors */
@@ -524,7 +527,7 @@ h1,h2,h3,h4,h5,h6
   display none
 
 /* @end flavors */
-/* @group 35em min-width */
+/* @group 540px max-width */
 @media only screen and (max-width: 540px)
   .btn
     padding 0.666em 1.333em
@@ -545,6 +548,17 @@ h1,h2,h3,h4,h5,h6
     .icon
       display none
 
+  .isHidden
+    video
+      display: none
+  #video
+    .the-stuff
+      top: 41.5%
+    svg
+      display: none
+  .btn[href="#flavors"]
+    display: none
+
 
 /* end 35em min-width @end */
 /* @group 60em min-width tablet-esque */
@@ -561,7 +575,7 @@ h1,h2,h3,h4,h5,h6
 
   .flavor
     font-size 0.666em
-    padding 5% 2.5% 5% 25%
+    padding 5% 2.5% 10% 25%
     text-align left
     position relative
     left 0
@@ -573,10 +587,10 @@ h1,h2,h3,h4,h5,h6
   .inline-can
     display block
     position absolute
-    top 2.5%
-    left 10%
+    top 5%
+    left 1.25%
     float left
-    width: 10%
+    width: 20%
 
   .flavorRoyalFlush
     background-color #cb232f
