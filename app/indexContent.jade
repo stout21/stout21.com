@@ -42,6 +42,14 @@
       - animationEnd = animationIn + 1000
       - endState = animationEnd + 300
       <img data-anchor-target="#flavors" data-#{ startState }-top="#{ cansOut }" data--#{ animationStart }-top="#{ cansOut }" data--#{ animationIn }-top="#{ cansIn }" data--#{ animationEnd }-top="#{ cansIn }" data--#{ endState }-top="#{ cansOut }" src="/images/#{ flavor['img'] }" alt="The #{ flavor['name'] } Beverage">
+
+    article(class="flavor flavors-pre", style="position:absolute;left:100%;right:10%;width:100%;text-align:left;", data-anchor-target="#flavors", data-0-top="opacity: 1;", data--200-top="opacity:1;", data--400-top="opacity:0")
+      h3 The Flavors of Stout21
+      ul
+        li Royal Flush
+        li Margarita
+        li Screwdriver
+        li Apple Pie
   each flavor, i in flavors
     - startState = 0
     - animationStart = i * 2000 + 300

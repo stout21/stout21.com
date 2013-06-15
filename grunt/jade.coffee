@@ -25,7 +25,7 @@ module.exports =
       data:
         env: 'production'
         flavorsSection: (() ->
-          attrs = []
+          attrs = ['data-top="background-color:#000000"']
           colors = [ '#cb232f', '#bdc86e', '#da4c32', '#dfac40' ]
           [0,1,3,4].forEach (i) ->
             pixel1 = i * 2000 + 300
@@ -47,7 +47,7 @@ module.exports =
         assetsRoot: '/'
         env: 'development'
         flavorsSection: (() ->
-          attrs = []
+          attrs = ['data-top="background-color:#000000"']
           colors = [ '#cb232f', '#bdc86e', '#da4c32', '#dfac40' ]
           [0,1,2,3].forEach (i) ->
             pixel1 = i * 2000 + 300
