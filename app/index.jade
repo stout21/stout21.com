@@ -13,35 +13,35 @@ html.no-js
     //if lt IE 9
       p.chromeframe You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.
 
-  header#masthead(role='banner')
-    a.logo(href='#masthead')
-      img(src='/images/sprite.png', style='clip:rect(0px,233px,49px,0px)', alt='Stout 21')
-    nav(role='navigation')
-      ul
-        li: a(href='#about') About
-        li: a(href='#flavors') The Flavors
-    a.icon.icon-instagram(href='https://instagram.com/stout_21', rel='nofollow') Stout 21 on Instagram
-    a.icon.icon-facebook(href='https://www.facebook.com/Stout21', rel='nofollow') Stout 21 on Facebook
-  include indexContent
+    header#masthead(role='banner')
+      a.logo(href='#masthead')
+        img(src='/images/sprite.png', style='clip:rect(0px,233px,49px,0px)', alt='Stout 21')
+      nav(role='navigation')
+        ul
+          li: a(href='#about') About
+          li: a(href='#flavors') The Flavors
+      a.icon.icon-instagram(href='https://instagram.com/stout_21', rel='nofollow') Stout 21 on Instagram
+      a.icon.icon-facebook(href='https://www.facebook.com/Stout21', rel='nofollow') Stout 21 on Facebook
+    include indexContent
 
-  footer#footer(role='contentinfo')
-    //<h2>{{ "Under Age Boozers are Loses" | localize }}</h2>
-    .push Think And Drink Responsibly
-    div &copy; Stout21 #{ new Date().getFullYear() }
+    footer#footer(role='contentinfo')
+      //<h2>{{ "Under Age Boozers are Loses" | localize }}</h2>
+      .push Think And Drink Responsibly
+      div &copy; Stout21 #{ new Date().getFullYear() }
 
-  if env === 'production'
-    script(src="/main.js")
-  else
-    //-script(src="/bower_components/video.js/video.js")
-    script(src="/bower_components/jquery/jquery.js")
-    //-script(src="/bower_components/skrollr/src/skrollr.js")
-    //-script(src="/bower_components/video.js/video.js")
-    script(src="/scripts/vendor/jquery.tap.js")
-    script(src="/scripts/vendor/video.js")
-    script(src="/scripts/vendor/skrollr.js")
-    script(src="/scripts/vendor/skrollr.menu.js")
-    script(src="/scripts/main.js")
-  script
-    var _gaq=[['_setAccount','UA-40554518-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'));
+    if env === 'production'
+      script(src="/main.js")
+    else
+      //-script(src="/bower_components/video.js/video.js")
+      script(src="/bower_components/jquery/jquery.js")
+      //-script(src="/bower_components/skrollr/src/skrollr.js")
+      //-script(src="/bower_components/video.js/video.js")
+      script(src="/scripts/vendor/jquery.tap.js")
+      script(src="/scripts/vendor/video.js")
+      script(src="/scripts/vendor/skrollr.js")
+      script(src="/scripts/vendor/skrollr.menu.js")
+      script(src="/scripts/main.js")
+    script
+      var _gaq=[['_setAccount','UA-40554518-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'));
 
 
