@@ -17,6 +17,7 @@
     might not acutally be the link but a child.
   */
   var findParentLink = function(element) {
+    if (!element) return false;
     //Yay, it's a link!
     if(element.tagName === 'A') {
       return element;

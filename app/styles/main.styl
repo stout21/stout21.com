@@ -22,9 +22,6 @@ html
   -webkit-text-size-adjust: 100%
   -ms-text-size-adjust: 100%
 
-body
-  margin: 0
-
 a:focus
   outline: thin dotted
 
@@ -183,6 +180,7 @@ html, button, input, select, textarea
 body
   font-size: 1.333em
   line-height: 1.6666
+  margin: 0
 
 ::-moz-selection
   background: #b3d4fc
@@ -270,17 +268,18 @@ textarea
 /* h5bp helpers @end */
 /* @group main styles */
 
+*
+  box-sizing: border-box
+
 //html
 body
   font-family 'Ubuntu', sans-serif
   margin 0 auto
-  padding 0
+  padding 0 0 1.5em
   position relative
 
 h1,h2,h3,h4,h5,h6
   font-family 'Russo One', serif
-
-/* main styles @end */
 
 #wrapper
   overflow-x hidden
@@ -293,7 +292,7 @@ h1,h2,h3,h4,h5,h6
   right 0
   overflow hidden
 
-
+/* main styles @end */
 /*@group header */
 
 #masthead
@@ -527,6 +526,83 @@ h1,h2,h3,h4,h5,h6
   display none
 
 /* @end flavors */
+/* @group map */
+
+.info-window
+  height: 80px
+  color: #999
+
+.info-address,
+.location-address
+  display: block
+
+.info-store
+  color: #333
+  margin-top: 0
+
+#find-us
+  overflow: hidden
+  position: relative
+  z-index: 5
+  h1
+    position: absolute
+
+#map-canvas
+  display: inline-block
+  height: 100%
+  vertical-align: top
+  width: 75%
+
+#map-locations
+  display: inline-block
+  padding-top: 1.2em
+  vertical-align: top
+  width: 25%
+
+  input
+    border: 1px solid #ccc
+    color: #555
+    margin: 0
+    padding: 0.5em 1.5em 0.5em 0.333em
+    position: absolute
+    top: 0
+    width: 100%
+
+#location-results-count
+  position: absolute
+  top: 0
+  right: 0.5em
+  font-size: 0.75em
+  .count
+    color: #666
+    &:after
+      content: ' / '
+  .total
+    color: #aaa
+
+#map-locations-list
+  overflow-y: scroll
+  background: #222
+
+.location
+  font-size: 0.666em
+  padding: 0.666em
+  border-top: 1px solid #555
+
+  &:nth-child(odd)
+    background: #333
+
+  h3
+    margin-top: 0
+
+.location--isActive
+  background: #000
+
+@media screen and (max-width: 500px)
+  #map-canvas
+    width: 100%
+
+/* @end map */
 /* @group 540px max-width */
 @media only screen and (max-width: 540px)
   .btn

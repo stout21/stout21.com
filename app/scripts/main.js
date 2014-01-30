@@ -1,4 +1,10 @@
 (function (skrollr, _V_) {
+  function noop(){}
+  if (typeof sessionStorage === 'undefined')
+    window.sessionStorage = { setItem: noop, getItem: noop };
+
+  var AGE_KEY = 'age-verified';
+  var OLD_ENOUGH = '1';
   var skrl, w, h;
   var $w = $(window).on('resize', onResize);
   var player = _V_('the-video');
@@ -8,13 +14,20 @@
     player.play();
   });
 
-  $('#how-old-you-be').on('tap', 'button', function(e) {
-    if ($(this).hasClass('btn-confirm')) startup();
-    else soonYoungPadawan();
-  });
+  if (sessionStorage.getItem(AGE_KEY) === OLD_ENOUGH)
+    $(function() { startup(); setTimeout(startup, 2500); });
+  else {
+    $('#how-old-you-be').on('tap', 'button', function() {
+      if ($(this).hasClass('btn-confirm')) startup();
+      else soonYoungPadawan();
+    });
+  }
 
   function startup() {
+    sessionStorage.setItem(AGE_KEY, OLD_ENOUGH);
     if (w > 560) {
+      $('html').removeClass('isFlat');
+
       skrl = skrollr.init();
 
       skrollr.menu.init(skrl, {
@@ -23,9 +36,7 @@
         easing: 'swing'
       });
     }
-    else {
-      $('html').addClass('isFlat');
-    }
+    else $('html').addClass('isFlat');
 
     $('#how-old-you-be').fadeOut();
     $('#video').removeClass('isHidden');
@@ -33,8 +44,9 @@
   }
 
   function soonYoungPadawan() {
-    $('#wrapper').children().not('#how-old-you-be').remove();
-    $('#wrapper').css({ background: 'url(/images/home.png) no-repeat', 'background-size': '100% 100%', height: w });
+    $('#wrapper')
+      .css({ background: 'url(/images/home.png) no-repeat', 'background-size': '100% 100%', height: w })
+      .children().not('#how-old-you-be').remove();
     $('#how-old-you-be button').remove();
     $('#how-old-you-be').append('<p>Sorry, you must be at least 21 years of age to view this site.</p>');
   }
@@ -45,8 +57,9 @@
     setDimensions();
   }
 
+  var $about = $('#about');
   function onScroll() {
-    var offsetTop = $('#about').offset().top;
+    var offsetTop = $about.offset().top;
     var currentScroll = $w.scrollTop();
     if (currentScroll >= offsetTop) {
       player.pause();
@@ -54,9 +67,7 @@
     }
   }
 
-  player.ready(function () {
-    //player = this;
-  });
+  // player.ready(function () { player = this; });
 
   player.addEvent('play', function () {
     $('#video')
@@ -81,6 +92,8 @@
 
   function setDimensions() {
     $('#video').height(h);
+    $('#find-us').height(h * 0.65);
+    $('#map-locations-list').height(h * 0.65);
   }
 
   function throttle(fn, time) {
