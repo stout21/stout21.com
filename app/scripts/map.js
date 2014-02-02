@@ -6,12 +6,16 @@
   var MAIN = '_buildThatMap'; // main func. called when google maps js loads
   var SETUP = 'setupFinder'; // setup func. called when location data loads
 
-  var mapManager, isReady = false;
+  var mapManager, isGoogleMapReady = false,
+    isLocationsReady = false;
 
   function setup(locations) {
-    if (!isReady) return setTimeout(function() { setup(locations); }, 10);
+    if (!isGoogleMapReady) return setTimeout(function() { setup(locations); }, 10);
+    isLocationsReady = locations;
+  }
 
-    mapManager = new MapManager(locations);
+  function _reallySetup() {
+    mapManager = new MapManager(isLocationsReady);
     /*jshint ignore:start */
     mapManager.template(MapManager.INFO_WINDOW, function(data) {
       return [
@@ -45,7 +49,7 @@
 
   function initialize() {
     //google.maps.visualRefresh = true;
-    isReady = true;
+    isGoogleMapReady = true;
   }
 
   function MapManager(locations) {
@@ -172,6 +176,7 @@
 
   exports[MAIN] = initialize;
   exports[SETUP] = setup;
+  exports['renderMap'] = _reallySetup;
 
   function $(selector, ctx) {
     if (selector[0] === '#') return document.getElementById(selector.substr(1));

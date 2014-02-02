@@ -43,6 +43,7 @@ module.exports = (grunt) ->
             "app/scripts/vendor/skrollr.js"
             "app/scripts/vendor/skrollr.menu.js"
             "app/scripts/main.js"
+            "app/scripts/map.js"
           ]
     rev:
       dist:

@@ -63,9 +63,19 @@
     var currentScroll = $w.scrollTop();
     if (currentScroll >= offsetTop) {
       player.pause();
-      $w.off('scroll');
+      $w.off('scroll.video');
     }
   }
+
+  $w.on('scroll.map', function() {
+    var offsetTop = $about.offset().top;
+    var currentScroll = $w.scrollTop();
+    if (currentScroll >= offsetTop) {
+      window.renderMap();
+      $w.off('scroll.map');
+    }
+  });
+
 
   // player.ready(function () { player = this; });
 
@@ -74,7 +84,7 @@
       .removeClass('isPaused')
       .addClass('isPlaying');
 
-    $w.on('scroll', throttle(onScroll, 100));
+    $w.on('scroll.video', throttle(onScroll, 100));
   });
   player.addEvent('pause', onStop);
   player.addEvent('ended', onStop);
@@ -110,9 +120,7 @@
 
 
   $(function() {
-    setTimeout(function() {
-      onResize();
-    }, 1000);
+    setTimeout(onResize, 1000);
   });
 
   function trackPlayStart() {
