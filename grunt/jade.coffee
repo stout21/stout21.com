@@ -1,3 +1,19 @@
+flavorsSection = (() ->
+  attrs = ['data-top="background-color:#000000"']
+  colors = [ '#cb232f', '#bdc86e', '#da4c32', '#dfac40' ]
+  [0,1,2,3].forEach (i) ->
+    pixel1 = i * 2000 + 300
+    pixel2 = pixel1 + 1300
+    color = colors[i]
+    animationStart = (i - 1) * 2000 + 300
+    animationIn = animationStart + 300
+    animationEnd = animationIn + 1000
+    attrs.push "data--#{ pixel1 }-top=\"background-color:#{ color }\""
+    attrs.push "data--#{ pixel2 }-top=\"background-color:#{ color }\""
+
+  "<section id=\"flavors\" #{ attrs.join(' ') } style=\"height:8714px;background-color:#cb232f;\">"
+)()
+
 module.exports =
 
   # files options for local targets
@@ -24,21 +40,7 @@ module.exports =
     options:
       data:
         env: 'production'
-        flavorsSection: (() ->
-          attrs = ['data-top="background-color:#000000"']
-          colors = [ '#cb232f', '#bdc86e', '#da4c32', '#dfac40' ]
-          [0,1,3,4].forEach (i) ->
-            pixel1 = i * 2000 + 300
-            pixel2 = pixel1 + 1300
-            color = colors[i]
-            animationStart = (i - 1) * 2000 + 300
-            animationIn = animationStart + 300
-            animationEnd = animationIn + 1000
-            attrs.push "data--#{ pixel1 }-top=\"background-color:#{ color }\""
-            attrs.push "data--#{ pixel2 }-top=\"background-color:#{ color }\""
-
-          "<section id=\"flavors\" #{ attrs.join(' ') } style=\"height:8714px;background-color:#cb232f;\">"
-        )()
+        flavorsSection: flavorsSection
 
   # local target used with grunt server
   compile:
@@ -46,21 +48,7 @@ module.exports =
       data:
         assetsRoot: '/'
         env: 'development'
-        flavorsSection: (() ->
-          attrs = ['data-top="background-color:#000000"']
-          colors = [ '#cb232f', '#bdc86e', '#da4c32', '#dfac40' ]
-          [0,1,2,3].forEach (i) ->
-            pixel1 = i * 2000 + 300
-            pixel2 = pixel1 + 1300
-            color = colors[i]
-            animationStart = (i - 1) * 2000 + 300
-            animationIn = animationStart + 300
-            animationEnd = animationIn + 1000
-            attrs.push "data--#{ pixel1 }-top=\"background-color:#{ color }\""
-            attrs.push "data--#{ pixel2 }-top=\"background-color:#{ color }\""
-
-          "<section id=\"flavors\" #{ attrs.join(' ') } style=\"height:8714px;background-color:#cb232f;\">"
-        )()
+        flavorsSection: flavorsSection
 
     files: '<%= jade.localFiles %>'
 
